@@ -43,7 +43,7 @@ The goal is to **deliver value fast**, maintain performance, and set up a scalab
 ## 📂 Project Structure
 The link below contains the project structure 
 
-[project structure - stage1](image.png)
+[project structure - stage1](docs/images/stage1-backend-project-structure.png)
 ---
 
 ## 🔹 Features (Stage 1)
