@@ -1,8 +1,8 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { Job } from '../types/interfaces.types';
+import { IJob } from '../types/interfaces.types';
 import { JobSchedule, JobStatus, JobType } from '../constants/enums';
 
-export interface JobDocument extends Job, Document {}
+export interface JobDocument extends IJob, Document {}
 
 const JobSchema = new Schema<JobDocument>({
   title: { type: String, required: true, index: true },
