@@ -2,12 +2,12 @@ import { Types } from "mongoose";
 import { JobSchedule, JobStatus, JobType } from "../constants/enums";
 
 //Category interface
-export interface Category {
+export interface ICategory {
   name: string;
   description?: string;
 }
 // Job interface
-export interface Job {
+export interface IJob {
   title: string;
   description: string;
   company: string;
@@ -26,10 +26,19 @@ export interface Job {
 }
 
 // Application interface
-export interface Application {
+export interface IApplication {
   jobId: string | Types.ObjectId; // Foreign key to Job
   applicantName: string;
   applicantEmail: string;
   coverLetter?: string;
   resumeUrl: string;
+}
+
+// Analytics interface
+export interface IAnalytics {
+  jobId?: string;        // Job viewed (optional for search)
+  searchQuery?: string;  // Text searched
+  location?: string;     // Location filter (optional)
+  timestamp: Date;       // When the event occurred
+  ip?: string;
 }
