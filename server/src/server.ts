@@ -23,10 +23,21 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+
 // Routes
+import jobRoutes from "./routes/job.route";
+import applicationRoutes from "./routes/application.route";
+import categoryRoutes from "./routes/category.route";
+import analyticsRoutes from "./routes/analytics.route";
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Kazi Link API is running!");
 });
+
+app.use("/jobs", jobRoutes);
+app.use("/applications", applicationRoutes);
+app.use("/categories", categoryRoutes);
+app.use("/analytics", analyticsRoutes);
 
 // Error handler (last middleware)
 app.use(errorHandler);
