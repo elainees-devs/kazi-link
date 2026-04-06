@@ -8,6 +8,15 @@
 This is the **backend** for Stage 1 of the Kazi Link Job Portal, focused on **Traffic First, Auth Later**.
 At this stage, the backend serves **public job listings** and **search functionality** without requiring user authentication.
 
+
+---
+
+## 🌐 Deployed Backend
+
+> Add your deployed backend API link below:
+>
+> `https://kazi-link.onrender.com/`
+
 The goal is to **deliver value fast**, maintain performance, and set up a scalable architecture for later stages.
 
 ---
