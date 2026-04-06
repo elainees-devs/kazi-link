@@ -13,7 +13,6 @@ At this stage, the backend serves **public job listings** and **search functiona
 
 ## 🌐 Deployed Backend
 
-> Add your deployed backend API link below:
 >
 > `https://kazi-link.onrender.com/`
 
