@@ -1,14 +1,13 @@
+import { Types } from "mongoose";
 import { JobSchedule, JobStatus, JobType } from "../constants/enums";
 
 //Category interface
 export interface Category {
-  id: string;
   name: string;
   description?: string;
 }
 // Job interface
 export interface Job {
-  id: string;
   title: string;
   description: string;
   company: string;
@@ -22,14 +21,13 @@ export interface Job {
   jobType: JobType;
   jobStatus: JobStatus 
   jobSchedule: JobSchedule
-  categoryId: string; // Foreign key to Category
+  categoryId: string | Types.ObjectId; // Foreign key to Category
   views: number; // For tracking 
 }
 
 // Application interface
 export interface Application {
-  id: string;
-  jobId: string; // Foreign key to Job
+  jobId: string | Types.ObjectId; // Foreign key to Job
   applicantName: string;
   applicantEmail: string;
   coverLetter?: string;
