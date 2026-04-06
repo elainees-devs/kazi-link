@@ -31,6 +31,13 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Kazi Link API is running!");
 });
 
+// Health check endpoint
+app.get("/health", (req: Request, res: Response) => {
+  res.status(200).json({ status: "ok", message: "API is healthy" });
+});
+
+// Use routes
+
 app.use("/jobs", jobRoutes);
 app.use("/applications", applicationRoutes);
 app.use("/categories", categoryRoutes);
