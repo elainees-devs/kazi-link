@@ -75,7 +75,7 @@ server/
 ```bash
 # Clone the repo
 git clone https://github.com/yourusername/kazi-link.git
-cd mern-job-portal/server
+cd kazi-link/server
 
 # Install dependencies
 npm install
