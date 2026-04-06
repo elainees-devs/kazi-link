@@ -12,7 +12,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-error.logs
+errors.log
 
 # OS files
 .DS_Store
