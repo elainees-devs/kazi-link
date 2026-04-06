@@ -41,18 +41,9 @@ The goal is to **deliver value fast**, maintain performance, and set up a scalab
 ---
 
 ## 📂 Project Structure
+The link below contains the project structure 
 
-```id="backend-structure"
-server/
-├── models/       # Mongoose schemas (Job, Company, etc.)
-├── routes/       # API endpoints
-├── services/     # Business or helper services
-├── types/        # TypeScript type definitions
-├── constants/    # App constants and enums
-├── controllers/  # Request handling / business logic
-└── server.ts     # Express server entry point
-```
-
+[project structure - stage1](image.png)
 ---
 
 ## 🔹 Features (Stage 1)
