@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { Application } from '../types/interfaces.types';
+import { IApplication } from '../types/interfaces.types';
 
-export interface ApplicationDocument extends Application, Document {}
+export interface ApplicationDocument extends IApplication, Document {}
 
 const ApplicationSchema = new Schema<ApplicationDocument>({
   jobId: { type: Schema.Types.ObjectId, ref: 'Job', required: true, index: true },
