@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { FilterBar, JobList, SortDropdown } from "../components";
+import HeroSection from "../components/HeroSection";
 import { jobs } from "../data/jobs_data";
 import { categories } from "../data/category_data";
 
@@ -38,6 +39,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <HeroSection />
       <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
       <div className="flex justify-end mb-4 gap-4 flex-wrap">
         <FilterBar
