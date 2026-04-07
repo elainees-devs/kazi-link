@@ -1,7 +1,7 @@
 
-import { Request, Response, NextFunction } from "express";
+import e, { Request, Response, NextFunction } from "express";
 import { z } from "zod";
-import { JobType, JobStatus, JobSchedule } from "../constants/enums";
+import { JobType, JobStatus, JobSchedule, EmailStatus } from "../constants/enums";
 
 // Zod schemas
 const CategorySchema = z.object({
@@ -33,7 +33,26 @@ const ApplicationSchema = z.object({
 	applicantEmail: z.string().email("Application 'applicantEmail' is required and must be a valid email address."),
 	coverLetter: z.string().optional(),
 	resumeUrl: z.string().min(1, "Application 'resumeUrl' is required and must be a string."),
+	employerEmail: z.string().email("Application 'employerEmail' is required and must be a valid email address."),	
+	emailStatus: z.nativeEnum(EmailStatus).optional(),
+	appliedAt: z.union([z.string(), z.date()]).optional(),
 });
+
+const AttachmentSchema = z.object({
+	filename: z.string().min(1, "Attachment 'filename' is required and must be a string."),
+	content: z.union([z.string(), z.instanceof(Buffer)]).refine(
+		(value) => typeof value === "string" || Buffer.isBuffer(value),
+		"Attachment 'content' must be a string or a Buffer."
+	),
+	mimeType: z.string().min(1, "Attachment 'mimeType' is required and must be a string."),
+});
+
+const EmailPayloadSchema = z.object({
+	to: z.string().email("Email 'to' is required and must be a valid email address."),
+	subject: z.string().min(1, "Email 'subject' is required and must be a string."),
+	html: z.string().min(1, "Email 'html' content is required and must be a string."),
+	attachments: z.array(AttachmentSchema).optional(),
+});	
 
 // Middleware generators
 function makeValidator(schema: z.ZodSchema<any>) {
