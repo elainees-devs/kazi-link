@@ -1,15 +1,13 @@
-import './index.css'
+import "./index.css";
+import { Layout } from "./components";
+import AppRoutes from "./AppRoutes";
 
 function App() {
-  
-
   return (
-    <>
-      <h1 className='text-3xl font-bold underline text-center mt-10'>
-        Kazi Link frontend is running!
-        </h1>
-    </>
-  )
+    <Layout>
+      <AppRoutes />
+    </Layout>
+  );
 }
 
-export default App
+export default App;
