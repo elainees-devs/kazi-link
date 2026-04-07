@@ -1,5 +1,10 @@
 import { Types } from "mongoose";
-import { EmailStatus, JobSchedule, JobStatus, JobType } from "../constants/enums";
+import {
+  EmailStatus,
+  JobSchedule,
+  JobStatus,
+  JobType,
+} from "../constants/enums";
 
 //Category interface
 export interface ICategory {
@@ -11,18 +16,19 @@ export interface IJob {
   title: string;
   description: string;
   company: string;
+  employerEmail: string; // For contact and applications
   slug: string; // Required for SEO-friendly public pages
   location: string;
   salary?: number;
   postedAt: Date;
   requirements: string[];
   benefits?: string[];
-  isRemote: boolean; 
+  isRemote: boolean;
   jobType: JobType;
-  jobStatus: JobStatus 
-  jobSchedule: JobSchedule
+  jobStatus: JobStatus;
+  jobSchedule: JobSchedule;
   categoryId: string | Types.ObjectId; // Foreign key to Category
-  views: number; // For tracking 
+  views: number; // For tracking
 }
 
 // Application interface
@@ -32,16 +38,17 @@ export interface IApplication {
   applicantEmail: string;
   coverLetter?: string;
   resumeUrl: string;
-  appliedAt: Date;
+  employerEmail: string; // <-- auto-filled, hidden field
   emailStatus: EmailStatus;
+  appliedAt: Date;
 }
 
 // Analytics interface
 export interface IAnalytics {
-  jobId?: string;        // Job viewed (optional for search)
-  searchQuery?: string;  // Text searched
-  location?: string;     // Location filter (optional)
-  timestamp: Date;       // When the event occurred
+  jobId?: string; // Job viewed (optional for search)
+  searchQuery?: string; // Text searched
+  location?: string; // Location filter (optional)
+  timestamp: Date; // When the event occurred
   ip?: string;
 }
 
