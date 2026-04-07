@@ -1,6 +1,5 @@
-
 ---
-
+---
 # Kazi Link MERN Job Portal – Stage 1 Backend
 
 ## 🚀 Overview
@@ -50,6 +49,7 @@ The link below contains the project structure
 * **Public job listings**
 * **Search and filtering** (basic)
 * **Pagination** for performance
+* **Email** for sending job applications
 * Optimized queries using **Mongoose `.lean()`**
 * **Type-safe operations** with TypeScript
 
@@ -68,6 +68,10 @@ The link below contains the project structure
 * Node.js v18+
 * npm or yarn
 * MongoDB instance (local or Atlas)
+* resend
+* multer
+* dotenv
+* express
 
 ### Installation
 
@@ -145,6 +149,17 @@ Jobs ↔ Applications:
 NB: Locations (city/country) are hardcoded in the app, so there is no table relationship for locations.
 
 [![Database ERD](./docs/images/phase1-erd.png)](./docs/images/phase1-erd.png)
+
+---
+
+
+## 🧪 Recommended Testing Tools
+
+- **Jest**: For unit and integration tests (works well with TypeScript)
+- **Supertest**: For HTTP endpoint testing with Express
+- **ts-jest**: TypeScript support for Jest
+- **Mocking libraries**: (jest-mock, nock for HTTP mocks)
+
 
 ---
 
