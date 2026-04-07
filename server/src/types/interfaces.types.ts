@@ -44,3 +44,18 @@ export interface IAnalytics {
   timestamp: Date;       // When the event occurred
   ip?: string;
 }
+
+// Attachment interface for email files
+export interface IAttachment {
+  filename: string;
+  content: Buffer | string; // Buffer for binary, string for base64
+  mimeType: string;
+}
+
+// Email payload interface for sending emails
+export interface IEmailPayload {
+  to: string;
+  subject: string;
+  html: string;
+  attachments?: IAttachment[];
+}
