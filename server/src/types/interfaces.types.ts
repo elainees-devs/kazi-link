@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { JobSchedule, JobStatus, JobType } from "../constants/enums";
+import { EmailStatus, JobSchedule, JobStatus, JobType } from "../constants/enums";
 
 //Category interface
 export interface ICategory {
@@ -32,6 +32,8 @@ export interface IApplication {
   applicantEmail: string;
   coverLetter?: string;
   resumeUrl: string;
+  appliedAt: Date;
+  emailStatus: EmailStatus;
 }
 
 // Analytics interface
