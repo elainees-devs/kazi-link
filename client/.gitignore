@@ -25,3 +25,6 @@ dist-ssr
 
 # Sample data files
 src/data/*.ts
+
+src/data/
+
