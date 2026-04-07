@@ -18,3 +18,10 @@ export enum JobSchedule {
   Contract = "contract",
   Internship = "internship",
 }
+
+// Email Status enum
+export enum EmailStatus {
+  Sent = "sent",
+  Failed = "failed",
+  Pending = "pending",
+}
