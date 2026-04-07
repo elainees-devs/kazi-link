@@ -6,4 +6,6 @@ export { default as Pagination } from './Pagination';
 export { default as SearchBar } from './SearchBar';
 export { default as Layout } from './shared/Layout';
 export { default as FilterBar } from './FilterBar';
+export { default as JobFilters } from './JobFilters';
 export { default as SortDropdown } from './SortDropdown';
+export { default as HeroSection } from './HeroSection';
