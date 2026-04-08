@@ -7,15 +7,15 @@ import {
   getApplications,
 } from "../controllers";
 
-const router = Router();
+const applicationRouter = Router();
 
 // GET /applications - list applications
-router.get("/", getApplications);
+applicationRouter.get("/", getApplications);
 
 // GET /applications/:id - get application by id
-router.get("/:id", getApplicationById);
+applicationRouter.get("/:id", getApplicationById);
 
 // POST /applications - create application
-router.post("/", validateApplication, createApplication);
+applicationRouter.post("/", validateApplication, createApplication);
 
-export default router;
+export default applicationRouter;
