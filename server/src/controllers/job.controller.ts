@@ -7,7 +7,7 @@ export const getJobs = async (req: Request, res: Response) => {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
     const skip = (page - 1) * limit;
-    const jobs = await JobModel.find({}, "title company location jobType jobStatus jobSchedule categoryId postedAt isRemote salary slug")
+    const jobs = await JobModel.find({}, "title company location jobType jobStatus jobSchedule categoryId subcategoryId postedAt isRemote salary slug")
       .lean()
       .skip(skip)
       .limit(limit);
@@ -38,7 +38,7 @@ export const getJobById = async (req: Request, res: Response) => {
 // GET /search → text search (title/location/category)
 export const searchJobs = async (req: Request, res: Response) => {
   try {
-    const { q, location, category, page = 1, limit = 10 } = req.query;
+    const { q, location, category, subcategory, page = 1, limit = 10 } = req.query;
     const query: any = {};
     // Helper to extract string from query param
     function getStringParam(param: any): string | undefined {
@@ -49,8 +49,9 @@ export const searchJobs = async (req: Request, res: Response) => {
     if (q) query.$text = { $search: q };
     if (location) query.location = getStringParam(location);
     if (category) query.categoryId = category;
+    if (subcategory) query.subcategoryId = subcategory;
     const skip = (Number(page) - 1) * Number(limit);
-    const jobs = await JobModel.find(query, "title company location jobType jobStatus jobSchedule categoryId postedAt isRemote salary slug")
+    const jobs = await JobModel.find(query, "title company location jobType jobStatus jobSchedule categoryId subcategoryId postedAt isRemote salary slug")
       .lean()
       .skip(skip)
       .limit(Number(limit));
