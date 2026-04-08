@@ -8,21 +8,21 @@ import {
 } from "../controllers";
 import { validateSubCategory } from "../middleware";
 
-const router = Router();
+const subCategoryRouter = Router();
 
 // Create subcategory
-router.post("/", validateSubCategory, createSubCategory);
+subCategoryRouter.post("/", validateSubCategory, createSubCategory);
 
 // Get all subcategories
-router.get("/", getSubCategories);
+subCategoryRouter.get("/", getSubCategories);
 
 // Get subcategory by ID
-router.get("/:id", getSubCategoryById);
+subCategoryRouter.get("/:id", getSubCategoryById);
 
 // Update subcategory
-router.put("/:id", validateSubCategory, updateSubCategory);
+subCategoryRouter.put("/:id", validateSubCategory, updateSubCategory);
 
 // Delete subcategory
-router.delete("/:id", deleteSubCategory);
+subCategoryRouter.delete("/:id", deleteSubCategory);
 
-export default router;
+export default subCategoryRouter;
