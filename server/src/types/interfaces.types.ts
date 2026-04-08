@@ -11,6 +11,13 @@ export interface ICategory {
   name: string;
   description?: string;
 }
+
+interface ISubcategory {
+  name: string;
+  slug: string;
+  categoryId: Types.ObjectId; // Parent Category
+}
+
 // Job interface
 export interface IJob {
   title: string;
@@ -29,6 +36,7 @@ export interface IJob {
   jobStatus: JobStatus;
   jobSchedule: JobSchedule;
   categoryId: string | Types.ObjectId; // Foreign key to Category
+  subcategoryId?: string | Types.ObjectId;
   views: number; // For tracking
 }
 
