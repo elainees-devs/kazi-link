@@ -1,5 +1,5 @@
-export * from "./category.route";
-export * from "./job.route";
-export * from "./application.route";
-export * from "./analytics.route";
-export * from "./subCategory.route";
+export { default as categoryRouter } from "./category.route";
+export { default as subCategoryRouter } from "./subCategory.route";
+export { default as applicationRouter } from "./application.route";
+export { default as analyticsRouter } from "./analytics.route";
+export { default as jobRouter } from "./job.route";
