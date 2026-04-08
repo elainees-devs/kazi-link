@@ -9,21 +9,21 @@ import {
 
 import { validateCategory } from "../middleware/validation.middleware";
 
-const router = Router();
+const categoryRouter = Router();
 
 // GET /categories - list categories
-router.get("/", getCategories);
+categoryRouter.get("/", getCategories);
 
 // GET /categories/:id - get category by id
-router.get("/:id", getCategoryById);
+categoryRouter.get("/:id", getCategoryById);
 
 // POST /categories - create category
-router.post("/", validateCategory, createCategory);
+categoryRouter.post("/", validateCategory, createCategory);
 
 // PUT /categories/:id - update category
-router.put("/:id", validateCategory, updateCategory);
+categoryRouter.put("/:id", validateCategory, updateCategory);
 
 // DELETE /categories/:id - delete category
-router.delete("/:id", deleteCategory);
+categoryRouter.delete("/:id", deleteCategory);
 
-export default router;
+export default categoryRouter;
