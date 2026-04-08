@@ -3,6 +3,13 @@ import cors from "cors";
 import mongoose from "mongoose";
 import { config as dotenvConfig } from "dotenv";
 import { errorHandler } from "./middleware";
+import {
+  analyticsRouter,
+  applicationRouter,
+  categoryRouter,
+  jobRouter,
+  subCategoryRouter,
+} from "./routes";
 
 // Load environment variables
 dotenvConfig();
@@ -20,13 +27,6 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-
-// Routes
-import jobRoutes from "./routes/job.route";
-import applicationRoutes from "./routes/application.route";
-import categoryRoutes from "./routes/category.route";
-import analyticsRoutes from "./routes/analytics.route";
-
 app.get("/", (req: Request, res: Response) => {
   res.send("Kazi Link API is running!");
 });
@@ -38,10 +38,11 @@ app.get("/health", (req: Request, res: Response) => {
 
 // Use routes
 
-app.use("/jobs", jobRoutes);
-app.use("/applications", applicationRoutes);
-app.use("/categories", categoryRoutes);
-app.use("/analytics", analyticsRoutes);
+app.use("/jobs", jobRouter);
+app.use("/applications", applicationRouter);
+app.use("/categories", categoryRouter);
+app.use("/subcategories", subCategoryRouter);
+app.use("/analytics", analyticsRouter);
 
 // Error handler (last middleware)
 app.use(errorHandler);
