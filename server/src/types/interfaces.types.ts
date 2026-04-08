@@ -12,7 +12,7 @@ export interface ICategory {
   description?: string;
 }
 
-interface ISubcategory {
+export interface ISubcategory {
   name: string;
   slug: string;
   categoryId: Types.ObjectId; // Parent Category
