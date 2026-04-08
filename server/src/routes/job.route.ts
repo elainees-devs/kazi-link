@@ -9,24 +9,24 @@ import {
 } from "../controllers";
 import { validateJob } from "../middleware/validation.middleware";
 
-const router = Router();
+const jobRouter = Router();
 
 // GET /jobs - list jobs
-router.get("/", getJobs);
+jobRouter.get("/", getJobs);
 
 // GET /jobs/search - search jobs
-router.get("/search", searchJobs);
+jobRouter.get("/search", searchJobs);
 
 // GET /jobs/:id - get job by id
-router.get("/:id", getJobById);
+jobRouter.get("/:id", getJobById);
 
 // POST /jobs - create job
-router.post("/", validateJob, createJob);
+jobRouter.post("/", validateJob, createJob);
 
 // PUT /jobs/:id - update job
-router.put("/:id", validateJob, updateJob);
+jobRouter.put("/:id", validateJob, updateJob);
 
 // DELETE /jobs/:id - delete job
-router.delete("/:id", deleteJob);
+jobRouter.delete("/:id", deleteJob);
 
-export default router;
+export default jobRouter;
