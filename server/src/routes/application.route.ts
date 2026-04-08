@@ -1,10 +1,11 @@
 import { Router } from "express";
-import {
-	getApplications,
-	getApplicationById,
-	createApplication,
-} from "../controllers/application.controller";
+
 import { validateApplication } from "../middleware/validation.middleware";
+import {
+  createApplication,
+  getApplicationById,
+  getApplications,
+} from "../controllers";
 
 const router = Router();
 

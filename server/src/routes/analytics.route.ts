@@ -1,11 +1,6 @@
 import { Router } from "express";
-import {
-	getAnalytics,
-	getAnalyticsById,
-	createAnalytics,
-	updateAnalytics,
-	deleteAnalytics,
-} from "../controllers/analytics.controller";
+import { createAnalytics, deleteAnalytics, getAnalytics, getAnalyticsById, updateAnalytics } from "../controllers";
+
 
 const router = Router();
 

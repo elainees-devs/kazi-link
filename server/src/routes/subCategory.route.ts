@@ -1,13 +1,12 @@
 import { Router } from "express";
 import {
-	createSubCategory,
-	getSubCategories,
-	getSubCategoryById,
-	updateSubCategory,
-	deleteSubCategory
-} from "../controllers/subCategory.controller";
+  createSubCategory,
+  deleteSubCategory,
+  getSubCategories,
+  getSubCategoryById,
+  updateSubCategory,
+} from "../controllers";
 import { validateSubCategory } from "../middleware";
-
 
 const router = Router();
 
