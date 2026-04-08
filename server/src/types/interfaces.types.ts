@@ -21,6 +21,7 @@ export interface IJob {
   location: string;
   salary?: number;
   postedAt: Date;
+  externalApplyLink?: string; // Optional for jobs that redirect to external sites
   requirements: string[];
   benefits?: string[];
   isRemote: boolean;

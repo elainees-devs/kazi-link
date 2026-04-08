@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ApplicationModel, AnalyticsModel } from "../models";
-import { EmailService } from "../services/email.service";
+import { sendMail } from "../services/nodeMailer.service";
 import { EmailStatus } from "../constants/enums";
 
 // Get all applications
@@ -56,11 +56,9 @@ export const createApplication = async (req: Request, res: Response) => {
 			attachments,
 		};
 
-		// Send email
-		const emailService = new EmailService();
 		let emailStatus = EmailStatus.Pending;
 		try {
-			await emailService.sendEmail(emailPayload);
+			await sendMail(emailPayload);
 			emailStatus = EmailStatus.Sent;
 		} catch (err) {
 			emailStatus = EmailStatus.Failed;
