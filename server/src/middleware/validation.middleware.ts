@@ -1,4 +1,3 @@
-
 import e, { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 import { JobType, JobStatus, JobSchedule, EmailStatus } from "../constants/enums";
@@ -7,6 +6,13 @@ import { JobType, JobStatus, JobSchedule, EmailStatus } from "../constants/enums
 const CategorySchema = z.object({
 	name: z.string().min(1, "Category 'name' is required and must be a non-empty string."),
 	description: z.string().optional(),
+});
+
+// SubCategory schema
+const SubCategorySchema = z.object({
+	name: z.string().min(1, "Subcategory 'name' is required and must be a non-empty string."),
+	slug: z.string().min(1, "Subcategory 'slug' is required and must be a string."),
+	categoryId: z.string().min(1, "Subcategory 'categoryId' is required and must be a string."),
 });
 
 const JobSchema = z.object({
@@ -24,6 +30,7 @@ const JobSchema = z.object({
 	jobStatus: z.nativeEnum(JobStatus),
 	jobSchedule: z.nativeEnum(JobSchedule),
 	categoryId: z.string().min(1, "Job 'categoryId' is required and must be a string."),
+	subcategoryId: z.string().optional(),
 	views: z.number().optional(),
 });
 
@@ -69,3 +76,4 @@ function makeValidator(schema: z.ZodSchema<any>) {
 export const validateCategory = makeValidator(CategorySchema);
 export const validateJob = makeValidator(JobSchema);
 export const validateApplication = makeValidator(ApplicationSchema);
+export const validateSubCategory = makeValidator(SubCategorySchema);
