@@ -12,6 +12,7 @@ const JobSchema = new Schema<JobDocument>({
   location: { type: String, required: true, index: true },
   salary: { type: Number },
   postedAt: { type: Date, default: Date.now },
+  externalApplyLink: { type: String },
   requirements: [{ type: String }],
   benefits: [{ type: String }],
   isRemote: { type: Boolean, default: false },
